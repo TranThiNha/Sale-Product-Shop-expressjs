@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Data Table | HCMUS Admin</title>
+
+    <!-- Bootstrap -->
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/stylesheets/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/stylesheets/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="/stylesheets/green.css" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="/stylesheets/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/scroller.bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/stylesheets/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="/" class="site_title"><i class="fa fa-paw"></i> <span>HCMUS Admin</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+             {{# if user.username}}
+             <div class="profile_pic">
+                <img src="{{user.avatarUrl}}" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Welcome,</span>
+                <h2>{{user.username}}</h2>
+              </div>
+             {{else}} 
+             <div class="profile_pic">
+                <img src="/images/puppy.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Welcome,</span>
+                <h2>User</h2>
+              </div>
+             {{/if}}
+              
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="table.html">Dashboard</a></li>
+                    </ul>
+                  </li>
+                  
+                  <li><a><i class="fa fa-edit"></i> Form <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="form.html">Add Product Form</a></li>
+                      <li><a href="add_user_form.html">Add User Form</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="table.html">Data Table</a></li>
+                      <li><a href="users.html">Users Table</a></li>
+                      <li><a href="order_table.html">Order Table</a></li>
+                    </ul>
+                  </li>
+
+                  <li><a><i class="fa fa-table"></i> Statistic <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="statistic.html?type=date">Date</a></li>
+                      <li><a href="statistic.html?type=month">Month</a></li>
+                      <li><a href="statistic.html?type=year">Year</a></li>
+                    </ul>
+                  </li>
+                   
+                </ul>
+              </div>
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                   {{# if user.username}}
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+
+                  
+                    <img src="{{user.avatarUrl}}" alt="">{{user.username}}
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">                  
+                    <li><a href="/profile.html">Profile</a></li>
+                    <li><a href="/logout.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                  </ul>
+
+                    {{else}} 
+                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">                 
+                
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="/login.html"> Log In</a></li>
+              
+                    <li><a href="/signup.html">Sign Up</a></li>
+                  </ul>
+
+                    {{/if}}
+                </li>
+
+                <li role="presentation" class="dropdown">
+                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="badge bg-green">6</span>
+                  </a>
+                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                    <li>
+                      <a>
+                        <span class="image"><img src="/images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="/images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="/images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="/images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="text-center">
+                        <a>
+                          <strong>See All Alerts</strong>
+                          <i class="fa fa-angle-right"></i>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        {{{body}}}
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            HCMUS Admin - Bootstrap Admin Panel by <a href="https://colorlib.com">1412477</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+     <!-- jQuery -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script  type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script  type="text/javascript" src="js/fastclick.js"></script>
+    <!-- NProgress -->
+    <script type="text/javascript" src="js/nprogress.js"></script>
+    <!-- iCheck -->
+    <script type="text/javascript" src="js/icheck.min.js"></script>
+    <!-- Datatables -->
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="js/buttons.bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="js/dataTables.fixedHeader.min.js"></script>
+    <script type="text/javascript" src="js/dataTables.keyTable.min.js"></script>
+    <script type="text/javascript" src="js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="js/responsive.bootstrap.js"></script>
+    <script type="text/javascript" src="js/dataTables.scroller.min.js"></script>
+    <script type="text/javascript" src="js/jszip.min.js"></script>
+    <script type="text/javascript" src="js/pdfmake.min.js"></script>
+    <script type="text/javascript" src="js/vfs_fonts.js"></script>
+
+
+
+
+    <script type="text/javascript">
+
+    var colors = ""
+    var images = []
+    var category = 0
+      function  readURL(input,imgId,delId) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            var src = "jhbhjb"  
+            reader.onload = function (e) {
+
+              
+            document.getElementById(delId).style.display = 'block'; 
+            document.getElementById(imgId).src =  e.target.result
+                    
+            };          
+                 
+            reader.readAsDataURL(input.files[0] ); 
+            
+        }
+    }
+    </script>
+
+
+
+
+  <script type="text/javascript">
+      $(document).ready(function() {
+        $( "#btn_delete" ).click(function() {
+          var indexs = [];
+            $('.checkbox-select:checkbox:checked').each(function () {
+              var index = $(this).closest("tr").index();
+                indexs.push(index);
+                alert("Delete data in row (" + (index + 1) + ") ?");
+            });
+
+
+            
+            if (indexs.length == 0){
+              alert("No product selected!")
+            }else{
+                 
+                  window.location = "/table.html?action="+"delete"+"&indexs="+indexs;
+              
+            }
+                
+        });
+
+        
+
+        $(".view-detail").each(function(index) {
+          $(this).on("click", function() {
+            var index = $(this).closest("tr").index();
+            window.location = ("/edit_form.html/?index=" + index);
+          });
+        });
+  
+
+
+      $(".user-detail").each(function(index) {
+          $(this).on("click", function() {
+            var index = $(this).closest("tr").index();
+            window.location = ("/detail_user.html/?index=" + index);
+          });
+        });
+
+
+      $(".order-detail").each(function(index) {
+          $(this).on("click", function() {
+            var index = $(this).closest("tr").index();
+            window.location = ("/detail_order.html/?index=" + index);
+          });
+        });
+      });
+    </script>
+
+
+  
+
+
+<script type="text/javascript">
+function deleteImage(imgId, delId){
+
+id_tag =  document.getElementById(imgId).src
+    position = $.inArray(id_tag, images);
+if ( ~position ) colors.splice(position, 1);
+  document.getElementById(delId).style.display = 'none';
+  document.getElementById(imgId).src = "/images/placeholder.png" 
+}
+function deleteColor(colorId, delId){
+    id_tag = document.getElementById(colorId).style.background
+    position = $.inArray(id_tag, colors);
+if ( ~position ) colors.splice(position, 1);
+  document.getElementById(colorId).style.display = 'none';
+  document.getElementById(delId).style.display = 'none';
+}
+
+</script>
+
+<script type="text/javascript">
+  function chooseColors(thelist) {
+    var idx = thelist.selectedIndex;
+    var content = thelist.options[idx].innerHTML;
+
+    for (i = 1 ; i < 17 ; i++){
+
+      if (!document.getElementById("divcolor"+ i.toString()).style.background){
+        document.getElementById("divcolor"+ i.toString()).style.background = content;
+        colors = colors + content + ","
+         document.getElementById('color').value = colors
+        document.getElementById("divcolor"+ i.toString()).style.display = 'block'
+        document.getElementById("del-color-"+ i.toString()).style.display = 'block'
+        break;
+      }
+          
+    }
+
+}
+    function chooseCategory(thelist) {
+      var idx = thelist.selectedIndex;
+      var content = thelist.options[idx].innerHTML;
+      document.getElementById('category').value = content;
+
+    }
+
+    function choosgGender(thelist) {
+      var idx = thelist.selectedIndex;
+      var content = thelist.options[idx].innerHTML;
+      document.getElementById('gender').value = content;
+
+    }
+
+    function chooseRole(thelist) {
+      var idx = thelist.selectedIndex;
+      var content = thelist.options[idx].innerHTML;
+      document.getElementById('role').value = content;
+
+    }
+
+    function chooseStatus(thelist){
+        var idx = thelist.selectedIndex;
+        var content = thelist.options[idx].innerHTML;
+        document.getElementById('status').value = content;
+    }
+
+</script>
+
+<script type="text/javascript">
+      $(document).ready(function() {
+        $( "#ignore" ).click(function() {
+          var index = 0;
+          window.location = "/";
+        });
+
+        </script>
+
+<script type="text/javascript" src="js/custom.min.js"></script>
+  
+  <script type="text/javascript">
+    function statistic(){
+
+      var day = document.getElementById('day').value;
+      var month = document.getElementById('month').value;
+      var year = document.getElementById('year').value;
+      var type = document.getElementById('type').value
+      window.location = ("/statistic.html/?type="+type+"&day=" + day+"&month="+month+"&year="+year);
+    }
+  </script>
+
+    <!-- Custom Theme Scripts -->
+ <script type="text/javascript">
+      function goToIndex()
+      {
+        window.location.replace('/table.html');
+      }  
+    </script>
+
+
+<script type="text/javascript">
+      function deleteProduct()
+      {
+        window.location.replace('/table.html?action');
+      }  
+    </script>   
+
+
+  </body>
+</html>

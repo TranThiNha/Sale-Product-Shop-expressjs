@@ -1,0 +1,137 @@
+{{!<layout}}
+<!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Data Editing Form</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <br />
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+
+                      <div class="form-group">
+                        <label for="weight" class="control-label col-md-3 col-sm-3 col-xs-12">Status</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input style =" height: 30px;" id="status" name="status" type="text" class="text_box" value="{{order.status}}" min="1">
+                          <input style =" height: 30px;display:none;" id="index" name="index" type="text" class="text_box" value="{{index}}" min="1">
+                          <select style="height: 32px;" onChange="chooseStatus(this)">
+                            <option>Not delivery</option>
+                            <option>Delivering</option>
+                            <option>Delivered</option>
+                          </select>
+                        </div>
+                      </div> 
+
+                      <div class="form-group">
+
+                         <table class="table table-striped jambo_table bulk_action">
+                          <thead>
+                            <tr class="headings">
+                              
+                              <th class="column-title">Number </th>
+                              <th class="column-title" colspan="2">Item </th>
+                              <th class="column-title">Price</th>                        
+                            
+                            </tr>
+                          </thead>
+
+                          <tbody>
+                          
+                          {{#each items}}
+                            <tr class="even pointer">
+                            
+                            <td class=" " style="width: 36px;">{{number}}</td>
+                            <td class=" " style="width: 50px;" >
+                                <img style="height: 36px;" src="{{product_image}}"/>                                
+                            </td>
+                            <td class=" ">{{product_name}}</td>                           
+                            <td class=" ">{{product_price}} VND</td>
+                          </tr>
+                           {{/each}}                          
+                          
+                          </tbody>
+                          <tr colspan="3"> <strong>Total: <span style="font-size: 16px;">{{total}} VND </span></strong></tr>
+
+                        </table>
+                      </div>    
+
+                      <div class="form-group">
+                        <label for="weight" class="control-label col-md-3 col-sm-3 col-xs-12">User's name</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input style =" height: 30px;" disabled type="text" class="text_box" value="{{order.username}}">                         
+                        </div>
+                      </div> 
+
+                      <div class="form-group">
+                        <label for="weight" class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input style =" height: 30px;" disabled type="text" class="text_box" value="{{order.email}}">                         
+                        </div>
+                      </div> 
+
+                      <div class="form-group">
+                        <label for="weight" class="control-label col-md-3 col-sm-3 col-xs-12">Address</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input style =" height: 30px;" disabled type="text" class="text_box" value="{{order.address}}">                         
+                        </div>
+                      </div> 
+
+                      <div class="form-group">
+                        <label for="weight" class="control-label col-md-3 col-sm-3 col-xs-12">Telephone</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input style =" height: 30px;" disabled type="text" class="text_box" value="{{order.telephone}}">                         
+                        </div>
+                      </div> 
+               
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button class="btn btn-primary" id="btn_cancel" onclick="goToIndex()" type="button">Cancel</button>                          
+                          <button class="btn btn-primary" id="btn_Edit"  type="submit">Edit</button>
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->

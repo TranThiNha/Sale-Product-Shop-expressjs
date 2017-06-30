@@ -1,0 +1,186 @@
+
+<div class="header">
+  	  		<div class="wrap">
+				<div class="header_top">
+					<div class="logo">
+						<a href="index.html">Product Management</a>
+					</div>
+						<div class="header_top_right">
+							  <form style="float: left; position: relative;">
+					     		<select name="filter" style="height: 36px; float: left;">
+					     			<option>All</option>
+					     			<option>Price</option>
+					     			<option>Book</option>
+					     			<option>Computers</option>
+					     			<option>Health and Beauty</option>
+					     			<option>Home and Garden</option>
+					     			<option>Office Supplies</option>
+					     			<option>Sport equipment</option>
+					     		</select>
+					     		<input name="search_key" required="required" style="height: 30px; width: 200px;float: left;" type="text" value="">
+					     		<input style="height: 36px; width: 60px;"  type="submit" value="Search">
+					     	</form>
+
+					     	{{# if user}}
+					     	<div style="position: relative; float: right; margin-left: 16px;" onclick="profile_click()">
+					     		
+					     		<img src="{{user.avatarUrl}}" style="height: 36px;border-radius: 50%;"/>
+					     		<span style="color: white;" >{{user.username}}</span>
+					     		<ul id="drop_menu_profile" style="color: #212F3D; background-color:white; display: none;">
+						     		<li style="width: 100px; height: 24px;"><a href="/user_profile.html">Profile</a></li>
+						     		<li style="width: 100px; height: 24px;"><a href="/logout.html" >Logout</a></li>
+					     		</ul>					     		
+					     	</div>
+					     	{{else}}
+					     	<div style="position: relative; height:36px; width: 120px; text-align: center; vertical-align: middle; float: right; margin-left: 16px;background-color:#e44f2b;" onclick="profile_click()">
+					     		
+					     		<span style="color: white; margin-top:16px;" >Sign Up/Sign In</span>
+					     		<ul id="drop_menu_profile" style="color: #212F3D; background-color:white; display: none;">
+						     		<li style="width: 100px; height: 24px;"><a href="/login.html">Sign In</a></li>
+						     		<li style="width: 100px; height: 24px;"><a href="/signup.html" >Sign Up</a></li>
+					     		</ul>					     		
+					     	</div>
+					     	{{/if}}
+					</div>
+			     <div class="clear"></div>
+  		    </div>     
+  		    <div class="navigation">
+  		    	<a class="toggleMenu" href="#">Menu</a>
+					<ul class="nav">
+						<li>
+							<a href="index.html">Home</a>
+						</li>
+						<li  class="test">
+							<a href="/index.html?category=Book">Book</a>								
+						</li>
+						<li>
+							<a href="/index.html?category=Computer">Computers</a>						
+						</li>
+						<li>
+							<a href="/index.html?category=Health_and_Beauty">Health and Beauty</a>							
+						</li>
+						<li>
+							<a href="/index.html?category=Home_and_Garden">Home andGarden</a>						
+						</li>
+						<li>
+							<a href="/index.html?category=Office_Supplies">Office Supplies</a>					
+						</li>
+						<li>
+							<a href="/index.html?category=Sports_Equipment">Sports Equipment</a>							
+						</li>
+						<li>
+							<a href="card.html">Card</a>
+						</li>
+						<li>
+							<a href="/index.html?category=top10">Top 10</a>
+						</li>
+
+					</ul>
+					 <span class="left-ribbon"> </span> 
+      				 <span class="right-ribbon"> </span>    
+  		       </div>
+   		    </div>
+          </div>
+ <div class="main">
+ 	<div class="wrap">
+    	<div class="preview-page">
+     				
+
+
+				  	{{# if done}}
+				  	<dialog open style="width:400px; height: 100px; z-index:1000001; text-align: center">
+				  		<p style="font-size: 32px; color: red;">Order success!		  		
+				  		</p>				  	
+
+				  		<button onclick = "order_success()" style="font-size: 32px; margin-top: 16px;padding: 10px 32px; background-color: #4CAF50;border: none;color: white;text-align: center;text-decoration: none;display: inline-block; font-size: 16px;">OK</button>
+				  	</dialog>
+				  	{{/if}}
+
+
+				  <div class="contact-form" >
+				  	<h3>ORDER PRODUCT</h3>
+				  	<div style="width: 50%; height: 100%;">
+
+				    <div class="OrderForm" style= "margin-left: 50px; float: left;" >
+				    	<center><p style="font-size: 23px;">CUSTOMER'S INFORMATION</p></center>
+				        <form class="form-horizontal">
+				            <div class="form-group">
+				                <label for="txtName" class="col-sm-2 control-label">Full Name</label>
+				                <div class="col-sm-4">
+				                    <input type="text" required="required" class="form-control" id="txtName" placeholder="Nha Tran Thi" name="name">
+				                </div>
+				            </div>
+				            <div class="form-group">
+				                <label for="Email" class="col-sm-2 control-label">Email</label>
+				                <div class="col-sm-4">
+				                	<input type="text" required="required" class="form-control" placeholder="nhatran@gmail.com" id="txtEmail"  name="email">
+				                </div>
+				            </div>
+				            <div class="form-group">
+				                <label for="Address" class="col-sm-2 control-label">Address</label>
+                                <textarea required="required" rows="2" cols="60" name="address"  id='Address' placeholder="69/14 Ho Thi Ky, 1 Ward, 10 District, Ho Chi Minh city"></textarea>
+	                           
+				            </div>
+				            <div class="form-group">
+				                <label for="Telephone" class="col-sm-2 control-label">Telephone</label>
+				                <div class="col-sm-4">
+				                	<input required="required" type="text" class="form-control" id="txtTelephone" placeholder="19001897" name="telephone">
+				                </div>
+				            </div>
+				            
+				            <div class="form-group">
+				                <div class="col-sm-offset-2 col-sm-10">
+				                <center>
+				                    <button type="submit" class="btn btn-success" style="width: 200px; height: 35px; background-color: #f36b2d; border-radius:5px; border:none; color: #fff; font-size: 17px; font-weight: normal;">
+				                    <i class="fa fa-check"></i>
+				                    	ORDER PRODUCT
+				                    </button>
+				                 </center>
+				                </div>
+				            </div>
+				        </form>
+				    </div>
+			
+			    
+				  </div>
+				<div class="InformationProduct" style= "float: right; width: 50%;" >
+					<h3> Information of Order</h3>
+					 <table style= " border: 1px solid #fff; width:100%;">
+		                <thead ">
+		                    <tr>
+		                        <th class="left_align" style="width: 200px;">PRODUCT</th>
+		                        
+		                    </tr>
+		                </thead>
+		                <tbody style= "text-align: left; border: 1px solid #fff; ">
+		                {{#each order.product_name_list}}
+		                	<tr class=" first_item" style="border: 1px solid #fff; ">
+		                		<td style="padding-left: 8px;">
+                                      {{this}}                    
+                             	</td>               		
+                        	</tr>
+                        	{{/each}}                        	
+		                	<tr class=" first_item" style="border: 1px solid #fff; ">
+		                	
+		                    	<td colspan="2" class="total right_align sel-total" style="text-align: right; color: #f00;">
+		                            <strong class="total-price">
+		                            {{total_price}} VND
+		                            </strong>
+		                        </td>
+	                   		</tr>
+		                </tbody>
+		            </table>
+				</div>
+			  </div>		
+         </div> 
+    </div>
+ </div>
+   
+    <script type="text/javascript">
+		$(document).ready(function() {			
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			
+		});
+		</script>
+    	<a href="#" id="toTop"> </a>
+         <script type="text/javascript" src="js/navigation.js"></script>

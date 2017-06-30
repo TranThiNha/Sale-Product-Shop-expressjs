@@ -1,0 +1,191 @@
+<div class="header">
+  	  		<div class="wrap">
+				<div class="header_top">
+					<div class="logo">
+						<a href="index.html">Product Management</a>
+					</div>
+						<div class="header_top_right">
+							<form style="float: left; position: relative;">
+					     		<select name="filter" style="height: 36px; float: left;">
+					     			<option>All</option>
+					     			<option>Price</option>
+					     			<option>Book</option>
+					     			<option>Computers</option>
+					     			<option>Health and Beauty</option>
+					     			<option>Home and Garden</option>
+					     			<option>Office Supplies</option>
+					     			<option>Sport equipment</option>
+					     		</select>
+					     		<input name="search_key" required="required" style="height: 30px; width: 200px;float: left;" type="text" value="">
+					     		<input style="height: 36px; width: 60px;"  type="submit" value="Search">
+					     	</form>
+
+					     	{{# if user}}
+					     	<div style="position: relative; float: right; margin-left: 16px;" onclick="profile_click()">
+					     		
+					     		<img src="{{user.avatarUrl}}" style="height: 36px;border-radius: 50%;"/>
+					     		<span style="color: white;" >{{user.username}}</span>
+					     		<ul id="drop_menu_profile" style="color: #212F3D; background-color:white; display: none;">
+						     		<li style="width: 100px; height: 24px;"><a href="/user_profile.html">Profile</a></li>
+						     		<li style="width: 100px; height: 24px;"><a href="/logout.html" >Logout</a></li>
+					     		</ul>					     		
+					     	</div>
+					     	{{else}}
+					     	<div style="position: relative; height:36px; width: 120px; text-align: center; vertical-align: middle; float: right; margin-left: 16px;background-color:#e44f2b;" onclick="profile_click()">
+					     		
+					     		<span style="color: white; margin-top:16px;" >Sign Up/Sign In</span>
+					     		<ul id="drop_menu_profile" style="color: #212F3D; background-color:white; display: none;">
+						     		<li style="width: 100px; height: 24px;"><a href="/login.html">Sign In</a></li>
+						     		<li style="width: 100px; height: 24px;"><a href="/signup.html" >Sign Up</a></li>
+					     		</ul>					     		
+					     	</div>
+					     	{{/if}}
+					</div>
+			     <div class="clear"></div>
+  		    </div>     
+  		    <div class="navigation">
+  		    	<a class="toggleMenu" href="#">Menu</a>
+					<ul class="nav">
+						<li>
+							<a href="index.html">Home</a>
+						</li>
+						<li  class="test">
+							<a href="/index.html?category=Book">Book</a>								
+						</li>
+						<li>
+							<a href="/index.html?category=Computer">Computers</a>						
+						</li>
+						<li>
+							<a href="/index.html?category=Health_and_Beauty">Health and Beauty</a>							
+						</li>
+						<li>
+							<a href="/index.html?category=Home_and_Garden">Home andGarden</a>						
+						</li>
+						<li>
+							<a href="/index.html?category=Office_Supplies">Office Supplies</a>					
+						</li>
+						<li>
+							<a href="/index.html?category=Sports_Equipment">Sports Equipment</a>							
+						</li>
+						<li>
+							<a href="card.html">Card</a>
+						</li>
+						<li>
+							<a href="/index.html?category=top10">Top 10</a>
+						</li>
+
+					</ul>
+					 <span class="left-ribbon"> </span> 
+      				 <span class="right-ribbon"> </span>    
+  		       </div>
+   		    </div>
+          </div>
+ <div class="main">
+ 	<div class="wrap">
+    	<div class="preview-page">
+     				
+				  <div class="contact-form">
+				  	<h3>Profile: Tran Thi Nha</h3>
+				  	<div style="width: 100%; height: 100%;">
+
+					  	<div  id="Profile"  style="width: 30%; float: left;" >
+					  		<form id='form' style="enctype="multipart/form-data"method="POST" action="/user_profile.html?_csrf={{csrfToken}}" role="form"  >
+
+					  			<img id="avatar_img" src="{{user.avatarUrl}}" style="margin-left:50px;height: 150px;border-radius: 50%;"/>
+								    	
+								<input type="file" id="fileID" name="avatar" onchange="readURL(this,'avatar_img');" style="margin-left:50px;"/>
+								   
+
+					  			<div>
+					  				<label>Username:</label>
+				  					<input name="username" value="{{user.username}}" type="text">
+					  			</div>
+					  			<div>
+					  				<label>Email:</label>
+				  					<input disabled name="email" type="text" value ="{{user.email}}">
+					  			</div>
+
+					  			<div>
+					  				<label>Gender:</label>
+					  				<input type="text" name="gender" id="gender" value="{{user.gender}}">
+				  					 <select style ="width: 200px; height: 30px;" onChange="setGender(this)">
+			                            <option>Male</option>
+			                            <option>Female</option>			                            
+			                          </select>
+					  			</div>
+
+					  			<div id="btn_change_password">
+					  				<input type="button" value="change password" style="width:100%; height: 32px;background-color: #52BE80;border: none; font-size: 14px; font-family: "Times New Roman", Georgia, Serif;" onclick="changePassword()">
+					  			</div>
+
+					  			<div id="oldpassword" style="display: none;">
+					  				<label>Old password:</label>
+				  					<input placeholder="Enter old password" name="old_password" type="password">
+					  			</div>
+
+					  			<div id="newpassword" style="display: none;">
+					  				<label>New password:</label>
+				  					<input placeholder="Enter new password" name="new_password" type="password">
+					  			</div>
+					  			<label  style="color: red;">{{message}}</label>
+					  			<div>
+					  				<input type="submit" value="Update Profile" style="width:100%; height: 32px;background-color: #52BE80; font-size: 14px;border: none; font-family: "Times New Roman", Georgia, Serif;">
+					  			</div>
+				  			</form>
+							</div>
+
+				  			<div id = "Order" style="float:right; width: 65%;">
+
+				  			{{#each order_list}}
+
+				  				<table class="table table-striped jambo_table bulk_action" style="width: 100%; background-color:#EAFAF1;text-align: center;border-collapse:separate;border-spacing:0 5px;">
+		                          <thead>
+		                            <tr class="headings" style="background-color:#16A085;">
+		                              
+		                              <th class="column-title">Number </th>
+		                              <th class="column-title">Item </th>
+		                              <th class="column-title">Price</th>                        
+		                            
+		                            </tr>
+		                          </thead>
+
+		                          <tbody>	                          
+		                         	
+		                         	 <tr class="even pointer">
+		                         	 {{#each number_each_product_list}}
+		                           		<td class=" " style="width: 36px;">{{this}}</td>
+		                         	{{/each}}
+		                         	{{#each product_name_list}}
+		                           	<td class=" ">{{this}}</td>
+		                           	<td class=" ">{{this}}</td>
+		                         	{{/each}}
+		                         	
+		                            </tr>                        	
+		                            
+		                            		                          		                          
+		                          		                                                  		                          
+		                          </tbody>
+		                           <strong style="float: right;">Total: <span style="font-size: 16px;">{{total_price}} VND </span></strong>
+		                    {{/each}}
+		                        
+				 
+
+					  	</div>	
+
+				  		
+				  	</div>
+					    
+				  </div>
+			  </div>		
+         </div> 
+    </div>
+ </div>
+   
+    <script type="text/javascript">
+		$(document).ready(function() {			
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			
+		});
+	</script>
+    <a href="#" id="toTop"> </a>
+         <script type="text/javascript" src="js/navigation.js"></script>

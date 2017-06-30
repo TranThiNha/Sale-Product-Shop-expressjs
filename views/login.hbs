@@ -1,0 +1,30 @@
+  {{!<layout}}
+
+  <div class="login">
+  <h1>Login</h1>
+  {{# if hasError }} 
+  {{# each message}} 
+    <p style="color: red;">{{this}}</p>
+   {{/each}}
+  {{/if}}
+  <form method="post">
+      <input type="text" name="email" id="email" placeholder="Email" required="required" />
+      <input type="password" id="password" name="password" placeholder="Password" required="required" />
+      <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <button type="submit" class="btn btn-primary btn-block btn-large">Log in</button>
+        <button type="button" data-href='/' id="ignore" class="btn btn-primary btn-block btn-large" style="margin-top: 10px;">Ignore</button>
+        <button type="button" data-href='/signup.html' id="signup" class="btn btn-primary btn-block btn-large" style="margin-top: 10px;">Sign Up</button>
+    </form>
+    <a style="float: right;margin-top: 16px; color:#039BE5;" href="/change_password.html">Forget password?</a>
+</div>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+<script type="text/javascript">
+      
+
+       jQuery(document).ready(function($) {
+       $("#ignore").click(function() {
+        window.location = $(this).data("href");
+    });
+});
+       </script>
+ 

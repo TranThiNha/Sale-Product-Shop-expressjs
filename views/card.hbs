@@ -1,0 +1,141 @@
+<div class="header">
+  	  		<div class="wrap">
+				<div class="header_top">
+					<div class="logo">
+						<a href="index.html">Product Management</a>
+					</div>
+						<div class="header_top_right">
+							<form style="float: left; position: relative;">
+					     		<select name="filter" style="height: 36px; float: left;">
+					     			<option>All</option>
+					     			<option>Price</option>
+					     			<option>Book</option>
+					     			<option>Computers</option>
+					     			<option>Health and Beauty</option>
+					     			<option>Home and Garden</option>
+					     			<option>Office Supplies</option>
+					     			<option>Sport equipment</option>
+					     		</select>
+					     		<input name="search_key" required="required" style="height: 30px; width: 200px;float: left;" type="text" value="">
+					     		<input style="height: 36px; width: 60px;"  type="submit" value="Search">
+					     	</form>
+
+					     	{{# if login}}
+					     	<div style="position: relative; float: right; margin-left: 16px;" onclick="profile_click()">
+					     		
+					     		<img src="{{user.avatarUrl}}" style="height: 36px;border-radius: 50%;"/>
+					     		<span style="color: white;" >{{user.username}}</span>
+					     		<ul id="drop_menu_profile" style="color: #212F3D; background-color:white; display: none;">
+						     		<li style="width: 100px; height: 24px;"><a href="/user_profile.html">Profile</a></li>
+						     		<li style="width: 100px; height: 24px;"><a href="/logout.html" >Logout</a></li>
+					     		</ul>					     		
+					     	</div>
+					     	{{else}}
+					     	<div style="position: relative; height:36px; width: 120px; text-align: center; vertical-align: middle; float: right; margin-left: 16px;background-color:#e44f2b;" onclick="profile_click()">
+					     		
+					     		<span style="color: white; margin-top:16px;" >Sign Up/Sign In</span>
+					     		<ul id="drop_menu_profile" style="color: #212F3D; background-color:white; display: none;">
+						     		<li style="width: 100px; height: 24px;"><a href="/login.html">Sign In</a></li>
+						     		<li style="width: 100px; height: 24px;"><a href="/signup.html" >Sign Up</a></li>
+					     		</ul>					     		
+					     	</div>
+					     	{{/if}}
+					</div>
+			     <div class="clear"></div>
+  		    </div>     
+  		    <div class="navigation">
+  		    	<a class="toggleMenu" href="#">Menu</a>
+					<ul class="nav">
+						<li>
+							<a href="index.html">Home</a>
+						</li>
+						<li  class="test">
+							<a href="/index.html?category=Book">Book</a>								
+						</li>
+						<li>
+							<a href="/index.html?category=Computer">Computers</a>						
+						</li>
+						<li>
+							<a href="/index.html?category=Health_and_Beauty">Health and Beauty</a>							
+						</li>
+						<li>
+							<a href="/index.html?category=Home_and_Garden">Home andGarden</a>						
+						</li>
+						<li>
+							<a href="/index.html?category=Office_Supplies">Office Supplies</a>					
+						</li>
+						<li>
+							<a href="/index.html?category=Sports_Equipment">Sports Equipment</a>							
+						</li>
+						<li>
+							<a href="card.html">Card</a>
+						</li>
+						<li>
+							<a href="/index.html?category=top10">Top 10</a>
+						</li>
+
+					</ul>
+					 <span class="left-ribbon"> </span> 
+      				 <span class="right-ribbon"> </span>    
+  		       </div>
+   		    </div>
+          </div>
+ <div class="main">
+ 	<div class="wrap">
+    	<div class="preview-page">
+     				
+				  <div class="contact-form">
+				  	<h3>Card</h3>
+				  	<div style="width: 100%; height: 100%;">
+				  		<div style="float: left;width: 70%; box-shadow: 5px 5px 5px #888888;">
+						    <table style="margin:32px; width: 95%;" id="item_tbl" >
+
+						    {{#each cards}}
+
+							    <tr style="border-bottom:1pt solid #B0BEC5;">
+							    	<td width="15%">
+							    	<img style="height: 100px;" src="{{images.[0]}}" alt="Product Image" />
+							    	</td>
+							    	<td style="vertical-align:top;" width="50%">
+							    		<h1 style="margin-left: 16px; font-size: 20px;">{{name}}</h1>
+							    		<h4 style="margin-left: 16px;">{{description}}</h4>
+							    		<button type="button" class="delete_card" id="btn_delete" onclick="$(this).deleteCard();" style="background-color: #4CAF50; border: none;color: white; height:32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px; margin-left: 16px;  margin-top: 8px;">Delete</button>
+							    	</td>
+
+							    	<td style="vertical-align:top;font-size: 20px;" >
+							    		<h1 >{{price}} VND</h1>
+							    	</td>
+
+							    	<td style="vertical-align:top;font-size: 20px; padding-top:4px;" >
+							    		<input style="width: 80px; height: 30px;" type="Number" value = "1" min="1"/>
+							    	</td>
+							    </tr>
+							   {{/each}} 
+							        
+						    </table>
+					    </div>
+
+					    <div style="width: 28%; float: right;box-shadow: 5px 5px 5px #888888;">
+					    	<div style="margin: 32px;">
+					    		<h2 style="float: left;">Total price: </h2>
+					    		<h2 style="float: right;">{{total_price}} VND</h2>
+					    	</div>
+
+					    	<button onclick = "orderProduct()" style="width: 100%; height:36px; background-color:#FF3333;">Order</button>
+					   	</div>
+				  	</div>
+					    
+				  </div>
+			  </div>		
+         </div> 
+    </div>
+ </div>
+   
+    <script type="text/javascript">
+		$(document).ready(function() {			
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			
+		});
+	</script>
+    <a href="#" id="toTop"> </a>
+         <script type="text/javascript" src="js/navigation.js"></script>

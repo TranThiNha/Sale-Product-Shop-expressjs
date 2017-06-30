@@ -1,0 +1,236 @@
+{{!<layout}}
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Data Input Form</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>New Person <small>input data listed below and press Save to add a new person.</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <br />
+                    <form action="/form.html?_csrf={{csrfToken}}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/" method="post" enctype="multipart/form-data">
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Product's Name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+
+                          <input type="text" id="name" name="name" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Description <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="description" name="description" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Price</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input style =" height: 30px;" id="price" name="price" type="number" class="text_box" value="1" min="1">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="weight" class="control-label col-md-3 col-sm-3 col-xs-12">Weight</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input style =" height: 30px;" id="weight" name="weight" type="number" class="text_box" value="1" min="1">
+                        </div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Category<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select onChange="chooseCategory(this)" style ="width: 200px; height: 30px;" name="category">
+                            <option>Book</option>
+                            <option>Computers</option>
+                            <option>Health and Beauty</option>
+                            <option>Home and Garden</option>
+                            <option>Office Supplies</option>
+                            <option>Sport Equipment</option>
+                            
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Images (at least is 3)<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12" style = "margin-bottom: 16px;">
+
+                        <table >
+                          <tr>
+                            <th><img id="1" src="/images/placeholder.png" alt="your image" style="width:200px; height:200px; position: relative; float: left; margin-right: 4px; margin-bottom: 8px;"/>
+                            <img src ="/images/delete.ico" id= "del-1" onClick = "deleteImage('1', 'del-1')" style="display: none;width: 24px; height: 24px; position: relative; left: -8px; float:left; margin-top: -8px; margin-left: -16px;"/>                         
+                            </th>
+
+                            <th><img id="2" src="/images/placeholder.png" alt="your image" style="width:200px; height:200px; position: relative;  float: left; margin-right: 4px; margin-bottom: 8px;"/>
+
+                            <img src ="/images/delete.ico" id= "del-2" onClick = "deleteImage('2', 'del-2')" style="display: none;width: 24px; height: 24px; position: relative; left: -8px; float:left; margin-top: -8px; margin-left: -16px;"/>
+                            </th>
+                           
+                            
+                          </tr>
+                          <tr>
+                            <td><input required="required" name ="image1" type='file' onchange="readURL(this,'1','del-1');" style = "position: relative; margin-bottom: -8px;" /></td>
+                            <td><input required="required" name ="image1" type='file' onchange="readURL(this,'2','del-2');" style = "position: relative; margin-bottom: -8px;" /></td> 
+                            </tr>
+                          
+                        </table>
+
+                         <table style="margin-top: 16px;">
+                          <tr>
+                            <th><img id="3" src="/images/placeholder.png" alt="your image" style="width:200px; height:200px; position: relative; float: left; margin-right: 4px; margin-bottom: 8px;"/>
+                            <img src ="/images/delete.ico" id= "del-3" onClick = "deleteImage('3', 'del-3')" style="display: none;width: 24px; height: 24px; position: relative; left: -8px; float:left; margin-top: -8px; margin-left: -16px;"/>
+                            </th>
+                            <th><img id="4" src="/images/placeholder.png" alt="your image" style="width:200px; height:200px; position: relative;  float: left; margin-right: 4px; margin-bottom: 8px;"/>
+                            <img src ="/images/delete.ico" id= "del-4" onClick = "deleteImage('4', 'del-4')" style="display: none;width: 24px; height: 24px; position: relative; left: -8px; float:left; margin-top: -8px; margin-left: -16px;"/>
+                            </th>
+                            
+                          </tr>
+                          <tr>
+                            <td><input required="required" name ="image1" type='file' onchange="readURL(this,'3','del-3');" style = "position: relative; margin-bottom: -8px;" /></td>
+                            <td><input required="required" name ="image1" type='file' onchange="readURL(this,'4','del-4');" style = "position: relative; margin-bottom: -8px;" /></td> 
+                            </tr>
+                          
+                        </table>
+                          
+                        </div>
+                      </div>
+
+                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Colors<span class="required">*</span>
+                        </label>
+
+
+                        <div class="col-md-6 col-sm-6 col-xs-12" style = "margin-top:16px;">
+                        <input required="required" id ="color" name = "color" type ="text" style="display: none;" value = ""/>
+                          <select required="required" name="colors" onChange="chooseColors(this)" style ="width: 150px; height: 30px; float: left;" name="category">
+                            <option  style="background: #5D8AA8;" >#5D8AA8 </option>
+                            <option style="background: #E32636;">#E32636</option>
+                            <option style="background: #3B7A57"> #3B7A57</option>
+                            <option style="background: #B2BEB5">#B2BEB5</option>
+                            <option style="background: #98777B"> #98777B</option>
+                            <option style="background: #1F75FE"> #1F75FE</option>
+                            <option style="background: #CCCCCC"> #CCCCCC</option>
+                            <option style="background: #FFA812"> #FFA812</option>
+                            <option style="background: #81613e"> #81613e</option>
+                            <option style="background: #FF4040"> #FF4040</option>
+                            <option style="background: #F5F5F5"> #F5F5F5</option>
+                            <option style="background: #1F262A"> #1F262A</option>
+                            <option style="background: #056608"> #056608</option>
+                            <option style="background: #FFFF31"> #FFFF31</option>
+                            <option style="background: #FFFFFF"> #FFFFFF</option>
+                            <option style="background: #000000"> #000000</option>
+
+                          </select>
+
+                          <input style =" height: 30px;display: none" id="colors" name="colors" type="text" class="text_box" value="vang" >
+
+                          <div id = "divcolor1" style = "width: 32px; display:none; background-color:#ffffff; height: 32px;float: left;margin-left:8px; margin-bottom: 8px;"></div>
+                          <img src ="/images/delete.ico" onClick = "deleteColor('divcolor1', 'del-color-1')" id= "del-color-1" style="height: 16px; position: relative;display:none; left: -8px; float:left; margin-top: -8px; margin-left: -16px;"/>
+
+                           <div id = "divcolor2" style = "width: 32px; display:none;height: 32px;float: left;margin-left:8px; margin-bottom: 8px;"></div>
+                          <img src ="/images/delete.ico" onClick = "deleteColor('divcolor2', 'del-color-2')" id= "del-color-2" style="height: 16px; display:none; position: relative; left: -8px; float:left; margin-top: -8px; margin-left: -16px;"/>
+
+                           <div id = "divcolor3" style = "width: 32px;display:none; height: 32px;float: left;margin-left:8px; margin-bottom: 8px;"></div>
+                          <img src ="/images/delete.ico" onClick = "deleteColor('divcolor3', 'del-color-3')" id= "del-color-3" style="height: 16px; position: relative; display:none;left: -8px; float:left; margin-top: -8px; margin-left: -16px;"/>
+
+                           <div id = "divcolor4" style = "width: 32px; display:none;height: 32px;float: left;margin-left:8px; margin-bottom: 8px;"></div>
+                          <img src ="/images/delete.ico" onClick = "deleteColor('divcolor4', 'del-color-4')" id= "del-color-4" style="height: 16px; position: relative; display:none;left: -8px; float:left; margin-top: -8px; margin-left: -16px;"/>
+
+                           <div id = "divcolor5" style = "width: 32px;display:none; height: 32px;float: left;margin-left:8px; margin-bottom: 8px;"></div>
+                          <img src ="/images/delete.ico" onClick = "deleteColor('divcolor5', 'del-color-5')" id= "del-color-5" style="height: 16px; position: relative; display:none; left: -8px; float:left; margin-top: -8px; margin-left: -16px;"/>
+
+                           <div id = "divcolor6" style = "width: 32px;display:none; height: 32px;float: left;margin-left:8px; margin-bottom: 8px;"></div>
+                          <img src ="/images/delete.ico" onClick = "deleteColor('divcolor6', 'del-color-6')" id= "del-color-6" style="height: 16px; position: relative;display:none; left: -8px; float:left; margin-top: -8px; margin-left: -16px;"/>
+
+                           <div id = "divcolor7" style = "width: 32px;display:none; height: 32px;float: left;margin-left:8px; margin-bottom: 8px;"></div>
+                          <img src ="/images/delete.ico" onClick = "deleteColor('divcolor7', 'del-color-7')" id= "del-color-7" style="height: 16px; position: relative; display:none;left: -8px; float:left; margin-top: -8px; margin-left: -16px;"/>
+
+                           <div id = "divcolor8" style = "width: 32px; display:none;height: 32px;float: left;margin-left:8px; margin-bottom: 8px;"></div>
+                          <img src ="/images/delete.ico" onClick = "deleteColor('divcolor8', 'del-color-8')" id= "del-color-8" style="height: 16px; position: relative; display:none;left: -8px; float:left; margin-top: -8px; margin-left: -16px;"/>
+
+                           <div id = "divcolor9" style = "width: 32px;display:none; height: 32px;float: left;margin-left:8px; margin-bottom: 8px;"></div>
+                          <img src ="/images/delete.ico" onClick = "deleteColor('divcolor9', 'del-color-9')" id= "del-color-9" style="height: 16px; position: relative;display:none; left: -8px; float:left; margin-top: -8px; margin-left: -16px;"/>
+
+                           <div id = "divcolor10" style = "width: 32px;display:none; height: 32px;float: left;margin-left:8px; margin-bottom: 8px;"></div>
+                          <img src ="/images/delete.ico" onClick = "deleteColor('divcolor10', 'del-color-10')" id= "del-color-10" style="height: 16px; display:none;position: relative; left: -8px; float:left; margin-top: -8px; margin-left: -16px;"/>
+
+                           <div id = "divcolor11" style = "width: 32px;display:none; height: 32px;float: left;margin-left:8px; margin-bottom: 8px;"></div>
+                          <img src ="/images/delete.ico" onClick = "deleteColor('divcolor11', 'del-color-11')" id= "del-color-11" style="height: 16px;display:none; position: relative; left: -8px; float:left; margin-top: -8px; margin-left: -16px;"/>
+
+                           <div id = "divcolor12" style = "width: 32px;display:none; height: 32px;float: left;margin-left:8px; margin-bottom: 8px;"></div>
+                          <img src ="/images/delete.ico" onClick = "deleteColor('divcolor12', 'del-color-12')" id= "del-color-12" style="height: 16px;display:none; position: relative; left: -8px; float:left; margin-top: -8px; margin-left: -16px;"/>
+                           <div id = "divcolor13" style = "width: 32px; display:none;height: 32px;float: left;margin-left:8px; margin-bottom: 8px;"></div>
+                          <img src ="/images/delete.ico" onClick = "deleteColor('divcolor13', 'del-color-13')" id= "del-color-13" style="height: 16px;display:none; position: relative; left: -8px; float:left; margin-top: -8px; margin-left: -16px;"/>
+
+                           <div id = "divcolor14" style = "width: 32px;display:none; height: 32px;float: left;margin-left:8px; margin-bottom: 8px;"></div>
+                          <img src ="/images/delete.ico" onClick = "deleteColor('divcolor14', 'del-color-14')" id= "del-color-14" style="height: 16px;display:none; position: relative; left: -8px; float:left; margin-top: -8px; margin-left: -16px;"/>
+
+                           <div id = "divcolor15" style = "width: 32px; display:none;height: 32px;float: left;margin-left:8px; margin-bottom: 8px;"></div>
+                          <img src ="/images/delete.ico" onClick = "deleteColor('divcolor15', 'del-color-15')" id= "del-color-15" style="height: 16px;display:none; position: relative; left: -8px; float:left; margin-top: -8px; margin-left: -16px;"/>
+
+                           <div id = "divcolor16" style = "width: 32px;display:none; height: 32px;float: left;margin-left:8px; margin-bottom: 8px;"></div>
+                          <img src ="/images/delete.ico" onClick = "deleteColor('divcolor16', 'del-color-16')" id= "del-color-16" style="height: 16px;display:none; position: relative; left: -8px; float:left; margin-top: -8px; margin-left: -16px;"/>
+                          
+ 
+                        </div>
+                      </div>
+
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button class="btn btn-primary" type="button">Cancel</button>
+                          <button class="btn btn-primary" type="reset">Reset</button>
+                          <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                          <button type="submit" id="submit" class="btn btn-success">Submit</button>
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->

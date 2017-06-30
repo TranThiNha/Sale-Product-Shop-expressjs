@@ -1,0 +1,235 @@
+<div class="header">
+			<div class="wrap">
+				<div class="header_top">
+					<div class="logo">
+						<a href="index.html">Product Management</a>
+					</div>
+						<div class="header_top_right">
+							<form style="float: left; position: relative;">
+					     		<select name="filter" style="height: 36px; float: left;">
+					     			<option>All</option>
+					     			<option>Price</option>
+					     			<option>Book</option>
+					     			<option>Computers</option>
+					     			<option>Health and Beauty</option>
+					     			<option>Home and Garden</option>
+					     			<option>Office Supplies</option>
+					     			<option>Sport equipment</option>
+					     		</select>
+					     		<input name="search_key" required="required" style="height: 30px; width: 200px;float: left;" type="text" value="">
+					     		<input style="height: 36px; width: 60px;"  type="submit" value="Search">
+					     	</form>
+
+					     	{{# if user}}
+					     	<div style="position: relative; float: right; margin-left: 16px;" onclick="profile_click()">
+					     		
+					     		<img src="{{user.avatarUrl}}" style="height: 36px;border-radius: 50%;"/>
+					     		<span style="color: white;" >{{user.username}}</span>
+					     		<ul id="drop_menu_profile" style="color: #212F3D; background-color:white; display: none;">
+						     		<li style="width: 100px; height: 24px;"><a href="/user_profile.html">Profile</a></li>
+						     		<li style="width: 100px; height: 24px;"><a href="/logout.html" >Logout</a></li>
+					     		</ul>					     		
+					     	</div>
+					     	{{else}}
+					     	<div style="position: relative; height:36px; width: 120px; text-align: center; vertical-align: middle; float: right; margin-left: 16px;background-color:#e44f2b;" onclick="profile_click()">
+					     		
+					     		<span style="color: white; margin-top:16px;" >Sign Up/Sign In</span>
+					     		<ul id="drop_menu_profile" style="color: #212F3D; background-color:white; display: none;">
+						     		<li style="width: 100px; height: 24px;"><a href="/login.html">Sign In</a></li>
+						     		<li style="width: 100px; height: 24px;"><a href="/signup.html" >Sign Up</a></li>
+					     		</ul>					     		
+					     	</div>
+					     	{{/if}}
+
+					     	
+					</div>
+			     <div class="clear"></div>
+  		    </div>
+  		    <div class="navigation">
+  		    	<a class="toggleMenu" href="#">Menu</a>
+					<ul class="nav">
+						<li>
+							<a href="index.html">Home</a>
+						</li>
+						<li  class="test">
+							<a href="/index.html?category=Book">Book</a>								
+						</li>
+						<li>
+							<a href="/index.html?category=Computer">Computers</a>						
+						</li>
+						<li>
+							<a href="/index.html?category=Health_and_Beauty">Health and Beauty</a>							
+						</li>
+						<li>
+							<a href="/index.html?category=Home_and_Garden">Home and Garden</a>						
+						</li>
+						<li>
+							<a href="/index.html?category=Office_Supplies">Office Supplies</a>					
+						</li>
+						<li>
+							<a href="/index.html?category=Sports_Equipment">Sports Equipment</a>							
+						</li>
+						<li>
+							<a href="card.html">Card</a>
+						</li>
+						<li>
+							<a href="/index.html?category=top10">Top 10</a>
+						</li>
+						
+					</ul>
+					 <span class="left-ribbon"> </span> 
+      				 <span class="right-ribbon"> </span>    
+  		    </div>
+  		     <div class="header_bottom">
+			   <div class="slider-text">
+			   	<h2>R2 <br/>Welcom to our shop</h2>
+			   	<p>Where everything is bought</p>
+			   	<a href="#">R2</a>
+	  	      </div>
+	  	      <div class="slider-img">
+	  	      	<img src="images/slider-img.png" alt="" />
+	  	      </div>
+	  	     <div class="clear"></div>
+	      </div>
+   		</div>
+   </div>
+   <!------------End Header ------------>
+  <div class="main">
+      <div class="content">
+    	        <div class="content_top">
+    	        	<div class="wrap">
+		          	   <h3>Latest Products</h3>
+		          	</div>
+		          	<div class="line"> </div>
+		          	<div class="wrap">
+		          	 <div class="ocarousel_slider">  
+	      				<div class="ocarousel example_photos" data-ocarousel-perscroll="3">
+			                <div class="ocarousel_window">
+			                   <a href="#" title="img1"> <img src="images/latest-product-img1.jpg" alt="" /><p>Nuncvitae</p></a>
+			                   <a href="#" title="img2"> <img src="images/latest-product-img2.jpg" alt="" /><p>Suspendiss</p></a>
+			                   <a href="#" title="img3"> <img src="images/latest-product-img3.jpg" alt="" /><p>Phasellus ferm</p></a>
+			                   <a href="#" title="img4"> <img src="images/latest-product-img4.jpg" alt="" /><p>Veldignissim</p></a>
+			                   <a href="#" title="img5"> <img src="images/latest-product-img5.jpg" alt="" /><p>Aliquam interd</p></a>
+			                   <a href="#" title="img6"> <img src="images/latest-product-img6.jpg" alt="" /><p>Sapien lectus</p></a>
+			                   <a href="#" title="img1"> <img src="images/latest-product-img1.jpg" alt="" /><p>Nuncvitae</p></a>
+			                   <a href="#" title="img2"> <img src="images/latest-product-img2.jpg" alt="" /><p>Suspendiss</p></a>
+			                   <a href="#" title="img3"> <img src="images/latest-product-img3.jpg" alt="" /><p>Phasellus ferm</p></a>
+			                   <a href="#" title="img4"> <img src="images/latest-product-img4.jpg" alt="" /><p>Veldignissim</p></a>
+			                   <a href="#" title="img5"> <img src="images/latest-product-img5.jpg" alt="" /><p>Aliquam interd</p></a>
+			                   <a href="#" title="img6"> <img src="images/latest-product-img6.jpg" alt="" /><p>Sapien lectus</p></a>
+			                </div>
+			               <span>           
+			                <a href="#" data-ocarousel-link="left" style="float: left;" class="prev"> </a>
+			                <a href="#" data-ocarousel-link="right" style="float: right;" class="next"> </a>
+			               </span>
+					   </div>
+				     </div>  
+				   </div>    		
+    	       </div>
+    	  <div class="content_bottom">
+    	    <div class="wrap">
+    	    	<div class="content-bottom-left">
+    	    		<div class="categories">
+						   <ul>
+						  	   <h3>Browse All Categories</h3>
+								<li  class="test">
+									<a href="/index.html?category=Book">Book</a>								
+								</li>
+								<li>
+									<a href="/index.html?category=Computer">Computers</a>						
+								</li>
+								<li>
+									<a href="/index.html?category=Health_and_Beauty">Health and Beauty</a>							
+								</li>
+								<li>
+									<a href="/index.html?category=Home_and_Garden">Home and Garden</a>						
+								</li>
+								<li>
+									<a href="/index.html?category=Office_Supplies">Office Supplies</a>					
+								</li>
+								<li>
+									<a href="/index.html?category=Sports_Equipment">Sports Equipment</a>							
+								</li>
+						
+						  	 </ul>
+						</div>		
+						<div class="buters-guide">
+						<h3>Buyers Guide</h3>
+						<p><span>We want you to be happy with your purchase.</span></p>	
+						<p>So we're committed to giving you all the tools to make the right decision with minimum fuss. </p>
+					  </div>	
+					  <div class="add-banner">
+					  	<img src="images/camera.png" alt="" />
+					  	<div class="banner-desc">
+					  		<h4>Electronics</h4>
+					  	    <a href="#">More Info</a>
+					  	</div>
+					  	<div class="clear"></div>
+					  </div>
+					    <div class="add-banner add-banner2">
+					  	<img src="images/computer.png" alt="" />
+					  	<div class="banner-desc">
+					  		<h4>Computers</h4>
+					  	    <a href="#">More Info</a>
+					  	</div>
+					  	<div class="clear"></div>
+					  </div>
+    	    	</div>
+    	    	
+    	    	<div class="content-bottom-right">
+    	    	{{# if category}}
+    	    	<h3>{{category}}</h3>
+    	    	{{else}}
+    	    	<h3>Browse All Categories</h3>    	    	
+    	    	{{/if}}
+	            <div class="section group">
+	            {{#each data}}
+				  <div class="grid_1_of_4 images_1_of_4" style="height: 250px;">
+					 <h4><a href="preview.html?id={{id}}">{{name}}</a></h4>
+					  <a href="preview.html?id={{id}}"><img src="{{images.[0]}}" style="height: 100px;" alt="" /></a>
+					  <div class="price-details">
+				       <div class="price-number">
+							<p><span class="rupees">{{price}} VND</span></p>
+					    </div>
+					       		<div class="add-cart">								
+									<h4><a href="preview.html?id={{id}}">More Info</a></h4>
+							     </div>
+							 <div class="clear"></div>                      
+					</div>					 
+				</div>
+				{{/each}}
+			    </div>
+			    <form style="float: right;">
+			    	<input type="text" name="category" value="{{category}}" style="display:none;">
+			    	<input type="text" name="number_per_page" value="{{number_per_page}}" style="display:none;">
+			    	<label>Number product per page</label>
+				   	<select onChange="chooseNumberPerPage(this)"  style="width:60px; height:30px;">
+				   		<option>10</option>
+				   		<option>1</option>
+				   		<option>50</option>
+				   		<option>10</option>
+				   	</select>
+
+				   	
+					{{#each number_of_page}}
+					   	<input name="page_number" type="submit" style="margin:2px;width:30px; height: 30px;"  value="{{this}}">
+					{{/each}}
+			    </form>
+
+			    
+		      </div>
+		      <div class="clear"></div>
+		   </div>
+         </div>
+      </div>
+    </div>
+   <div class="footer">
+   	      </div>
+    <script type="text/javascript">
+		$(document).ready(function() {			
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			
+		});
+	</script>
+    <a href="#" id="toTop"> </a>
+    <script type="text/javascript" src="javascripts/navigation.js"></script>

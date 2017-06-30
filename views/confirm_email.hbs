@@ -1,0 +1,95 @@
+<div class="header">
+  	  		<div class="wrap">
+				<div class="header_top">
+					<div class="logo">
+						<a href="index.html">Product Management</a>
+					</div>
+						<div class="header_top_right">
+							  <form>
+					     			<select name="filter" style="height: 36px; float: left;">
+					     				<option>All</option>
+					     				<option>Price</option>
+					     				<option>Book</option>
+					     				<option>Computers</option>
+					     				<option>Health and Beauty</option>
+					     				<option>Home and Garden</option>
+					     				<option>Office Supplies</option>
+					     				<option>Sport equipment</option>
+					     			</select>
+					     			<input name="search_key" required="required" style="height: 30px; width: 200px;float: left;" type="text" value="">
+					     			<input style="height: 36px; width: 60px;"  type="submit" value="Search">
+					     		</form>
+					</div>
+			     <div class="clear"></div>
+  		    </div>     
+  		    <div class="navigation">
+  		    	<a class="toggleMenu" href="#">Menu</a>
+					<ul class="nav">
+						<li>
+							<a href="index.html">Home</a>
+						</li>
+						<li  class="test">
+							<a href="/index.html?category=Book">Book</a>								
+						</li>
+						<li>
+							<a href="/index.html?category=Computer">Computers</a>						
+						</li>
+						<li>
+							<a href="/index.html?category=Health_and_Beauty">Health and Beauty</a>							
+						</li>
+						<li>
+							<a href="/index.html?category=Home_and_Garden">Home andGarden</a>						
+						</li>
+						<li>
+							<a href="/index.html?category=Office_Supplies">Office Supplies</a>					
+						</li>
+						<li>
+							<a href="/index.html?category=Sports_Equipment">Sports Equipment</a>							
+						</li>
+						<li>
+							<a href="card.html">Card</a>
+						</li>
+						<li>
+							<a href="/index.html?category=top10">Top 10</a>
+						</li>
+
+					</ul>
+					 <span class="left-ribbon"> </span> 
+      				 <span class="right-ribbon"> </span>    
+  		       </div>
+   		    </div>
+          </div>
+ <div class="main">
+ 	<div class="wrap">
+    	<div class="preview-page">
+     				
+				  <div class="contact-form">
+				  	<h3>Active Account</h3>
+				  	<div style="width: 100%; height: 100%;">           
+                    <div class="alert-box information" style="color: #555;
+					    border-radius: 10px;
+					    font-family: Tahoma, Geneva, Arial, sans-serif;
+					    font-size: 14px;
+					    padding: 10px 10px 10px 36px;
+					    margin: 10px;
+					    background: #e3f7fc url('images/information.png') no-repeat 10px 50%;border: 1px solid #8ed9f6;">
+					    <span style="font-weight: bold;text-transform: uppercase;">notice: </span>					  
+					    <p> {{message}}</p>
+					 </div>
+               		 
+				  	</div>
+					    
+				  </div>
+			  </div>		
+         </div> 
+    </div>
+ </div>
+   
+    <script type="text/javascript">
+		$(document).ready(function() {			
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			
+		});
+	</script>
+    <a href="#" id="toTop"> </a>
+         <script type="text/javascript" src="js/navigation.js"></script>

@@ -1,0 +1,34 @@
+ {{!<layout}}
+  <div class="login">
+	<h1>Sign Up</h1>
+
+	{{# if hasError }} 
+	{{# each message}} 
+		<p style="color: red;">{{this}}</p>
+	 {{/each}}
+	{{/if}}
+    <form method="post">
+        <input type="text" name="email" id="email" placeholder="Email" required="required" />
+        <input type="text" name="username" id="email" placeholder="Username" required="required" />
+    	<input type="password" id="password" name="password" placeholder="Password" required="required" />
+        <input type="password" name="p2" placeholder="Confirm password" required="required" />
+        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <button type="submit" class="btn btn-primary btn-block btn-large">Sign Up</button>
+        <button type="button" data-href='/' id= "back" class="btn btn-primary btn-block btn-large" style="margin-top: 10px;">Back</button>
+
+    </form>
+
+    
+</div>
+  
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+<script type="text/javascript">
+      
+
+       jQuery(document).ready(function($) {
+       $("#back").click(function() {
+        window.location = $(this).data("href");
+    });
+});
+       </script>
+ 

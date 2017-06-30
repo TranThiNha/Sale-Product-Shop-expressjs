@@ -1,0 +1,364 @@
+<div class="header">
+  	  		<div class="wrap">
+				<div class="header_top">
+					<div class="logo">
+						<a href="index.html">Product Management</a>
+					</div>
+						<div class="header_top_right">
+							<form style="float: left; position: relative;">
+					     		<select name="filter" style="height: 36px; float: left;">
+					     			<option>All</option>
+					     			<option>Price</option>
+					     			<option>Book</option>
+					     			<option>Computers</option>
+					     			<option>Health and Beauty</option>
+					     			<option>Home and Garden</option>
+					     			<option>Office Supplies</option>
+					     			<option>Sport equipment</option>
+					     		</select>
+					     		<input name="search_key" required="required" style="height: 30px; width: 200px;float: left;" type="text" value="">
+					     		<input style="height: 36px; width: 60px;"  type="submit" value="Search">
+					     	</form>
+
+					     	{{# if user}}
+					     	<div style="position: relative; float: right; margin-left: 16px;" onclick="profile_click()">
+					     		
+					     		<img src="{{user.avatarUrl}}" style="height: 36px;border-radius: 50%;"/>
+					     		<span style="color: white;" >{{user.username}}</span>
+					     		<ul id="drop_menu_profile" style="color: #212F3D; background-color:white; display: none;">
+						     		<li style="width: 100px; height: 24px;"><a href="/user_profile.html">{{user.avatarUrl}}</a></li>
+						     		<li style="width: 100px; height: 24px;"><a href="/logout.html" >Logout</a></li>
+					     		</ul>					     		
+					     	</div>
+					     	{{else}}
+					     	<div style="position: relative; height:36px; width: 120px; text-align: center; vertical-align: middle; float: right; margin-left: 16px;background-color:#e44f2b;" onclick="profile_click()">
+					     		
+					     		<span style="color: white; margin-top:16px;" >Sign Up/Sign In</span>
+					     		<ul id="drop_menu_profile" style="color: #212F3D; background-color:white; display: none;">
+						     		<li style="width: 100px; height: 24px;"><a href="/login.html">Sign In</a></li>
+						     		<li style="width: 100px; height: 24px;"><a href="/signup.html" >Sign Up</a></li>
+					     		</ul>					     		
+					     	</div>
+					     	{{/if}}
+					</div>
+			     <div class="clear"></div>
+  		    </div>
+  		    <div class="navigation">
+  		    	<a class="toggleMenu" href="#">Menu</a>
+					<ul class="nav">
+						<li>
+							<a href="index.html">Home</a>
+						</li>
+						<li  class="test">
+							<a href="/index.html?category=Book">Book</a>								
+						</li>
+						<li>
+							<a href="/index.html?category=Computer">Computers</a>						
+						</li>
+						<li>
+							<a href="/index.html?category=Health_and_Beauty">Health and Beauty</a>							
+						</li>
+						<li>
+							<a href="/index.html?category=Home_and_Garden">Home andGarden</a>						
+						</li>
+						<li>
+							<a href="/index.html?category=Office_Supplies">Office Supplies</a>					
+						</li>
+						<li>
+							<a href="/index.html?category=Sports_Equipment">Sports Equipment</a>							
+						</li>
+						<li>
+							<a href="card.html">Card</a>
+						</li>
+						<li>
+							<a href="/index.html?category=top10">Top 10</a>
+						</li>
+
+					</ul>
+					 <span class="left-ribbon"> </span> 
+      				 <span class="right-ribbon"> </span>    
+  		       </div>
+   		    </div>
+          </div>
+       <!------------End Header ------------>
+   <div class="main">
+   	 <div class="wrap">
+   	 	<div class="preview-page">
+   	 	       <div class="section group">
+				<div class="cont-desc span_1_of_2">
+					<ul class="back-links">
+						<li><a href="#">Home</a> ::</li>
+						<li><a href="#">Product Page</a> ::</li>
+						<li>Product Name</li>
+						<div class="clear"> </div>
+					</ul>
+				  <div class="product-details">	
+					<div class="grid images_3_of_2">
+							<ul id="etalage">
+							<li>
+								<a href="optionallink.html">
+									<img class="etalage_thumb_image" src="{{product.images.[0]}}" />
+									<img class="etalage_source_image" src="{{product.images.[0]}}" title="" />
+								</a>
+							</li>
+							<li>
+								<img class="etalage_thumb_image" src="{{product.images.[1]}}"  />
+								<img class="etalage_source_image" src="{{product.images.[1]}}" title="" />
+							</li>
+							<li>
+								<img class="etalage_thumb_image" src="{{product.images.[2]}}"  />
+								<img class="etalage_source_image" src="{{product.images.[2]}}" />
+							</li>
+							<li>
+								<img class="etalage_thumb_image" src="{{product.images.[3]}}" />
+								<img class="etalage_source_image" src="{{product.images.[3]}}" />
+							</li>
+						</ul>
+				     </div>
+				   <div class="desc span_3_of_2">
+					<h2>{{product.name}}</h2>
+					<p>{{product.description}}</p>					
+					<div class="price">
+						<p>Price: <span>${{product.price}}</span></p>
+					</div>
+					<div class="price">
+						<p>review Number: <span>{{product.reviewNumber}}</span></p>
+					</div>
+					<div class="available">
+						<ul>
+						  <li><span>Shipping Weight:</span>&nbsp; {{product.weight}} kg</li>
+					    </ul>
+					</div>
+				<div class="share-desc">
+					<div class="share">
+						<p>Number of units :</p><input type="number" class="text_box" type="text" value="1" min="1" />				
+					</div>
+					<div class="button"><span><a href="/preview.html?id={{product.id}}&action=add_to_card">Add to Cart</a></span></div>					
+					<div class="clear"></div>
+				</div>
+				 <div class="wish-list">
+				 	
+				 </div>
+				 <div class="colors-share">
+				 	<div class="color-types">
+				 		<h4>Available Colors</h4>
+				 		<form class="checkbox-buttons">
+							<ul>
+								{{#each product.colors}}
+								<li><input type="radio"><label for="r1" style="background-color: {{this}}"> </label></li>
+								
+								{{/each}}
+							</ul>
+						 </form>
+				 	</div>
+				 	<div class="social-share">
+				 		<h4>Share Product</h4>
+				 			  <ul>
+									<li><a class="share-face" href="#"> </a></li>
+									<li><a class="share-twitter" href="#"> </a></li>
+									<li><a class="share-google" href="#"> </a></li>
+									<li><a class="share-rss" href="#"> </a></li>
+									<div class="clear"> </div>
+						    </ul>
+				 	</div>
+				 	<div class="clear"></div>
+				 </div>
+			</div>
+			<div class="clear"></div>
+		  </div>
+		<div class="product_desc">	
+			<div id="horizontalTab">
+				<ul class="resp-tabs-list">
+					
+					<li>Product Reviews</li>
+					<div class="clear"></div>
+				</ul>
+				<div class="resp-tabs-container">
+					
+				 
+				<div class="review">
+					
+				  <div class="your-review">
+
+				  	<table style="margin:24px;width: 90%;">
+				  		{{#each comments}}				  		
+				  		<tr style="border-bottom:1pt solid #B0BEC5;">
+							<td width="8%" style="padding-top:8px;">
+							   	<img style="height: 40px;" src="/images/picture.jpg" alt="Profile Image" />
+							</td>
+							<td style="vertical-align:top;padding-top:8px;" >
+							   	<h6><strong>{{username}}</strong><p style="color: #808B96; word-break: break-all">{{comment}}</p> </h6>
+							   	<p  style="font-size: 10px;"">{{date}}</p>							    		
+							</td>							    	
+						</tr>
+						{{/each}}
+				  	</table>
+
+				  	 <h4>How Do You Review This Product?</h4>
+				  	  <p>Write Your Own Review?</p>
+				  	  <form>
+					    	<div>
+						    	<span><label>Nickname<span class="red">*</span></label></span>
+						    	<span><input type="text" required="required" name="username"></span>
+						    </div>
+						    <div><span><label>Summary of Your Review<span class="red">*</span></label></span>
+						    	<span><input type="text" required="required" name ="summary" value=""></span>
+						    	<input type="text"  name ="id" value="{{product.id}}" style="display: none">
+						    </div>						
+						    <div>
+						    	<span><label>Review<span class="red">*</span></label></span>
+						    	<span><textarea required="required" name ="comment"> </textarea></span>
+						    </div>
+						   <div>
+						   		<span><input type="submit" value="SUBMIT REVIEW"></span>
+						  </div>
+					    </form>
+				  	 </div>			
+				  	  <script type="text/javascript">
+										 /* place inside document ready function */
+										 $(".rating").starRating({
+										  minus: true // step minus button
+										});
+									</script>	
+				</div>
+			  </div>
+		    </div>
+	    </div>
+      </div>
+				   <div class="rightsidebar span_3_of_1 sidebar">
+					<h3>Popular Products</h3>
+					<ul class="popular-products">
+						<li>
+							 <h4><a href="preview.html">Whirlpool LTE5243D 3.4 CuFt.... </a></h4>
+							  <a href="preview.html"><img src="images/product-img2.jpg" alt="" /></a>
+							  <div class="price-details">
+						       <div class="price-number">
+									<p><span class="rupees line-through">$899.95 </span> &nbsp; <span class="rupees">$839.93 </span></p>
+							    </div>
+							       		<div class="add-cart">								
+											<h4><a href="preview.html">More Info</a></h4>
+									     </div>
+									 <div class="clear"></div>
+							</div>					 
+						</li>
+						<li>
+							 <h4><a href="preview.html">Whirlpool LTE5243D 3.4 CuFt.... </a></h4>
+							  <a href="preview.html"><img src="images/product-img3.jpg" alt="" /></a>
+							  <div class="price-details">
+						       <div class="price-number">
+									<p><span class="rupees line-through">$899.95 </span> &nbsp; <span class="rupees">$839.93 </span></p>
+							    </div>
+							       		<div class="add-cart">								
+											<h4><a href="preview.html">More Info</a></h4>
+									     </div>
+									 <div class="clear"></div>
+							</div>					 
+						</li>
+						<li>
+							 <h4><a href="preview.html">Whirlpool LTE5243D 3.4 CuFt.... </a></h4>
+							  <a href="preview.html"><img src="images/product-img4.jpg" alt="" /></a>
+							  <div class="price-details">
+						       <div class="price-number">
+									<p><span class="rupees line-through">$899.95 </span> &nbsp; <span class="rupees">$839.93 </span></p>
+							    </div>
+							       		<div class="add-cart">								
+											<h4><a href="preview.html">More Info</a></h4>
+									     </div>
+									 <div class="clear"></div>
+							</div>					 
+						</li>
+				     </ul>
+				    
+      				   <div class="community-poll">
+      				 	<h3>Community POll</h3>
+      				 	<p>What is the main reason for you to purchase products online?</p>
+      				 	<div class="poll">
+      				 		<form>
+      				 			<ul>
+									<li>
+									<input type="radio" name="vote" class="radio" value="1">
+									<span class="label"><label>More convenient shipping and delivery </label></span>
+									</li>
+									<li>
+									<input type="radio" name="vote" class="radio" value="2">
+									<span class="label"><label for="vote_2">Lower price</label></span>
+									</li>
+									<li>
+									<input type="radio" name="vote" class="radio" value="3">
+									<span class="label"><label for="vote_3">Bigger choice</label></span>
+									</li>
+									<li>
+									<input type="radio" name="vote" class="radio" value="5">
+									<span class="label"><label for="vote_5">Payments security </label></span>
+									</li>
+									<li>
+									<input type="radio" name="vote" class="radio" value="6">
+									<span class="label"><label for="vote_6">30-day Money Back Guarantee </label></span>
+									</li>
+									<li>
+									<input type="radio" name="vote" class="radio" value="7">
+									<span class="label"><label for="vote_7">Other.</label></span>
+									</li>
+									</ul>
+      				 		</form>
+      				 	</div>
+      				 </div>
+					</div>
+ 		 		   </div>
+ 		 		</div>
+   	 		</div>
+   	 		<div class="content_top">
+    	        	<div class="wrap">
+		          	   <h3>Recently Viewed</h3>
+		          	</div>
+		          	<div class="line"> </div>
+		          	<div class="wrap">
+		          	 <div class="ocarousel_slider">  
+	      				<div class="ocarousel example_photos" data-ocarousel-perscroll="3">
+			                <div class="ocarousel_window">
+			                   <a href="#" title="img1"> <img src="images/latest-product-img1.jpg" alt="" /><p>Nuncvitae</p></a>
+			                   <a href="#" title="img2"> <img src="images/latest-product-img2.jpg" alt="" /><p>Suspendiss</p></a>
+			                   <a href="#" title="img3"> <img src="images/latest-product-img3.jpg" alt="" /><p>Phasellus ferm</p></a>
+			                   <a href="#" title="img4"> <img src="images/latest-product-img4.jpg" alt="" /><p>Veldignissim</p></a>
+			                   <a href="#" title="img5"> <img src="images/latest-product-img5.jpg" alt="" /><p>Aliquam interd</p></a>
+			                   <a href="#" title="img6"> <img src="images/latest-product-img6.jpg" alt="" /><p>Sapien lectus</p></a>
+			                   <a href="#" title="img1"> <img src="images/latest-product-img1.jpg" alt="" /><p>Nuncvitae</p></a>
+			                   <a href="#" title="img2"> <img src="images/latest-product-img2.jpg" alt="" /><p>Suspendiss</p></a>
+			                   <a href="#" title="img3"> <img src="images/latest-product-img3.jpg" alt="" /><p>Phasellus ferm</p></a>
+			                   <a href="#" title="img4"> <img src="images/latest-product-img4.jpg" alt="" /><p>Veldignissim</p></a>
+			                   <a href="#" title="img5"> <img src="images/latest-product-img5.jpg" alt="" /><p>Aliquam interd</p></a>
+			                   <a href="#" title="img6"> <img src="images/latest-product-img6.jpg" alt="" /><p>Sapien lectus</p></a>
+			                </div>
+			               <span>           
+			                <a href="#" data-ocarousel-link="left" style="float: left;" class="prev"> </a>
+			                <a href="#" data-ocarousel-link="right" style="float: right;" class="next"> </a>
+			               </span>
+					   </div>
+				     </div>  
+				   </div>    		
+    	       </div>
+        </div>
+        
+     <div class="footer">
+   	  <div class="wrap">	
+			 <div class="copy_right">
+				<p>Copy rights (c). All rights Reseverd | Template by  <a href="http://w3layouts.com" target="_blank">W3Layouts</a> </p>
+		   </div>	
+		   <div class="footer-nav">
+		   	<ul>
+		   		<li><a href="#">Terms of Use</a> : </li>
+		   		<li><a href="#">Privacy Policy</a> : </li>
+		   		<li><a href="contact.html">Contact Us</a> : </li>
+		   		<li><a href="#">Sitemap</a></li>
+		   	</ul>
+		   </div>		
+        </div>
+    </div>
+   <script type="text/javascript">
+		$(document).ready(function() {			
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			
+		});
+	</script>
+    <a href="#" id="toTop"> </a>
+       <script type="text/javascript" src="js/navigation.js"></script>

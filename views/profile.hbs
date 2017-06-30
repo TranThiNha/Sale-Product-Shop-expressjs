@@ -1,0 +1,127 @@
+{{!<layout}}
+<!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Admin Profile: {{user.username}}</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <br />
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" role="form" method="POST" enctype="multipart/form-data">
+
+
+                      <div class="form-group" style="float: left;width: 20%;">                     
+                        <table >
+                          <tr>
+
+                            <th><img id="img_avatar" src="{{user.avatarUrl}}" alt="your image" style="width:300px; height:300px;border-radius: 50%; position: relative;  float: left; margin-right: 4px; margin-bottom: 8px;"/>
+
+                            <img src ="/images/delete.ico" id= "del" onClick = "deleteImage('img_avatar', 'del')" style="display: none;width: 1px; height: 1px; position: relative; left: -8px; float:left; margin-top: -8px; margin-left: -16px;"/>
+                            </th>                       
+                            
+                          </tr>
+                          <tr>
+                            <td><input name ="avatar" type='file' onchange="readURL(this,'img_avatar','del');" style = "position: relative; margin-bottom: -8px;" /></td>                           
+                          </tr>
+                          
+                        </table>                     
+                          
+                      </div>
+
+                      <div style="float: right;width: 80%;">
+
+                      <div class="form-group">
+
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="username" >User's Name <span class="required"></span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input name = "_id" value = "{{user.id}}" style="display:none;"/>
+
+                          <input type="text" id="username" name="username" required="required" value="{{user.username}}" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email" >Email <span class="required"></span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="email"  name="email" value="{{user.email}}" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gender" >Gender <span class="required"></span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="gender" style="width: 150px;float: left"  name="gender" value="{{user.gender}}" class="form-control col-md-7 col-xs-12">
+                          <select onChange="chooseGender(this)" style ="width: 100px; height: 34px; margin-left: 8px;" >
+                                  <option>Male</option>
+                                  <option>Female</option>                                 
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Role</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="role"  style="width: 150px;float: left"   name="role" value="{{user.role}}" class="form-control col-md-7 col-xs-12">
+                          <select onChange="chooseRole(this)" style ="width: 100px; height: 34px; margin-left: 8px;" n>
+                                  <option>ADMIN</option>
+                                  <option>USER</option>                                 
+                          </select>
+                        </div>
+                      </div>
+
+                  
+                     
+                      </div>
+
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button class="btn btn-primary" id="btn_cancel" onclick="goToIndex()" type="button">Cancel</button>                          
+                          <button class="btn btn-primary" id="btn_Edit"  type="submit">Edit</button>
+                        </div>
+                      </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
